@@ -1,0 +1,29 @@
+# replicate.yaml
+title: llama-text-embed-v2
+description: LLaMA-based embedding model for Pinecone-compatible semantic search.
+predict: "python embed.py"
+
+input:
+  text:
+    type: string
+    description: "Input text to embed"
+    required: true
+
+output:
+  type: array
+  description: "Embedding vector as an array of floats"
+
+environment:
+  python_version: "3.10"
+  system_packages:
+    - libopenblas-dev
+    - gcc
+  python_packages:
+    - torch
+    - sentence-transformers
+    - huggingface-hub
+    - transformers
+    - accelerate
+    - numpy
+    - uvicorn
+    - fastapi
